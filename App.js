@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TextInput, Button, FlatList, StyleSheet} from 'react-native';
 
 export default function App() {
   const [action, setAction] = useState('');
