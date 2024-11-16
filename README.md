@@ -53,7 +53,6 @@ Ensure you have the following installed on your system:
 - **React Native CLI** (if using React Native CLI instead of Expo)
   ```bash
   npm install -g react-native-cli
-```markdown
 
   ```
 - **Android Studio** (for Android emulator):  
