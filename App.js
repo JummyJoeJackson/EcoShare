@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {View, Text, Button, FlatList, TextInput, StyleSheet, Image} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -60,7 +60,8 @@ export default function App() {
   };
 
   const handleLogout = async () => {
-    //await AsyncStorage.clear();
+    // TESTING PURPOSES ONLY!
+    // await AsyncStorage.clear();
     setIsLoggedIn(false);
     setUser(null);
   };
@@ -97,30 +98,20 @@ export default function App() {
       {isLoggedIn ? (
         <>
           <Text style={styles.subtitle}>Welcome, {user.name}!</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="What eco-friendly action did you take?"
-            value={action}
-            onChangeText={setAction}
-          />
+          <TextInput style={styles.input} placeholder="What eco-friendly action did you take?" value={action} onChangeText={setAction}/>
           <View style={styles.button}>
             <Button color="#6D9277" title="Add a Photo" onPress={pickImage}/>
           </View>
           <View style={styles.button}>
             <Button color="#6D9277" title="Share Action" onPress={addPost}/>
           </View>
-          
-          <FlatList
-            data={posts}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
+          <FlatList data={posts} keyExtractor={(item) => item.id} renderItem={({ item }) => (
               <View style={styles.post}>
                 {item.image && (<Image source={{uri: item.image}} style={styles.postImage}/>)}
                 <Text style={styles.posterName}>{item.posterName}</Text>
                 <Text style={styles.postText}>{item.text}</Text>
               </View>
-            )}
-          />
+          )}/>
           <View style={styles.button}>
             <Button style={styles.button} color="#6D9277" title="Logout" onPress={handleLogout}/>
           </View>
