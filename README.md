@@ -41,8 +41,9 @@ To get started, create an account and connect with other like-minded individuals
 
 
 ## Installation
-To run you must either download expo and run the program on your computer, or go to the expo-snack link: https://snack.expo.dev/@jummyjoejackson/ecoshare
-# Setting Up and Running a React Native Project Outside of Expo Snack
+To install you must either go to the expo-snack link: https://snack.expo.dev/@jummyjoejackson/ecoshare or do the following!
+
+## Setting Up and Running a React Native Project Outside of Expo Snack
 
 ### 1. **Install Prerequisites**
 Ensure you have the following installed on your system:
