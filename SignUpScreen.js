@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TextInput, Button, Alert, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({onSignUp}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Handle user sign-up
   const handleSignUp = async () => {
-    // Basic validation
     if (!name || !email || !password) {
       Alert.alert('Missing Fields', 'Please fill in all fields.');
       return;
     }
 
-    // Validate email format (simple check)
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       Alert.alert('Invalid Email', 'Please enter a valid email address.');
       return;
     }
 
-    // Create user data object
-    const userData = { name, email, password };
+    const userData = {name, email, password};
 
     try {
-      // Save user data in AsyncStorage
       await AsyncStorage.setItem('user', JSON.stringify(userData));
-      Alert.alert('Sign Up Successful', 'You have successfully created an account!');
+      onSignUp(userData);
     } catch (error) {
       console.error('Error saving user data:', error);
       Alert.alert('Error', 'Could not sign you up. Please try again.');
@@ -36,29 +31,56 @@ const SignUpScreen = () => {
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={styles.container}>
+      <Text style={styles.title}>Sign Up</Text>
+      <Text style={styles.label}>Full Name:</Text>
       <TextInput
+        style={styles.input}
         placeholder="Full Name"
         value={name}
         onChangeText={setName}
-        style={{ borderBottomWidth: 1, marginBottom: 10 }}
       />
+      <Text style={styles.label}>Email:</Text>
       <TextInput
+        style={styles.input}
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        style={{ borderBottomWidth: 1, marginBottom: 10 }}
       />
+      <Text style={styles.label}>Create Password:</Text>
       <TextInput
+        style={styles.input}
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        style={{ borderBottomWidth: 1, marginBottom: 20 }}
       />
-      <Button title="Sign Up" onPress={handleSignUp} />
+      <Button style={styles.button} color="#6D9277" title="Sign Up" onPress={handleSignUp} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#b7e1bf',
+    marginBottom: 100,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    borderColor: '#444243',
+  },
+  input: {
+    borderWidth: 2,
+    borderColor: '#444243',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#e0ffe0',
+  },
+});
 
 export default SignUpScreen;
