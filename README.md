@@ -134,7 +134,7 @@ npx react-native run-android
 
 ---
 
-## 8. Clearing AsyncStorage for Testing
+## 7. Clearing AsyncStorage for Testing
 To clear all data in AsyncStorage, use the following code snippet:
 ```javascript
 import AsyncStorage from '@react-native-async-storage/async-storage';
