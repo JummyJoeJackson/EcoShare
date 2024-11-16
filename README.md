@@ -42,6 +42,16 @@ To get started, create an account and connect with other like-minded individuals
 
 ## Installation
 To run you must either download expo and run the program on your computer, or go to the expo-snack link: https://snack.expo.dev/@jummyjoejackson/ecoshare
+# Setting Up and Running a React Native Project Outside of Expo Snack
+
+### 1. **Install Prerequisites**
+Ensure you have the following installed on your system:
+- **Node.js** (Recommended: Latest LTS version)  
+  [Download Node.js](https://nodejs.org/)
+- **npm** or **yarn** (Comes with Node.js)
+- **React Native CLI** (if using React Native CLI instead of Expo)
+  ```bash
+  npm install -g react-native-cli
 
 
 
