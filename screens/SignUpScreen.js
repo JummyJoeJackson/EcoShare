@@ -18,16 +18,9 @@ const SignUpScreen = ({onSignUp}) => {
       Alert.alert('Invalid Email', 'Please enter a valid email address.');
       return;
     }
-
-    const userData = {name, email, password};
-
-    try {
-      await AsyncStorage.setItem('user', JSON.stringify(userData));
-      onSignUp(userData);
-    } catch (error) {
-      console.error('Error saving user data:', error);
-      Alert.alert('Error', 'Could not sign you up. Please try again.');
-    }
+    
+    const signUpData = {name, email, password};
+    onSignUp(signUpData);
   };
 
   return (
@@ -55,7 +48,7 @@ const SignUpScreen = ({onSignUp}) => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button style={styles.button} color="#6D9277" title="Sign Up" onPress={handleSignUp} />
+      <Button color="#6D9277" title="Sign Up" onPress={handleSignUp} />
     </View>
   );
 };
