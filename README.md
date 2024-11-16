@@ -40,7 +40,7 @@ To get started, create an account and connect with other like-minded individuals
 
 
 ## Installation
-ADD THIS LATER
+To run you must either download expo and run the program on your computer, or go to the expo-snack link: https://snack.expo.dev/@jummyjoejackson/ecoshare
 
 
 
