@@ -1,42 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TextInput, Button, Alert, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const LoginScreen = () => {
+const LoginScreen = ({onLogin}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Check if user data exists in AsyncStorage when the app loads
-  useEffect(() => {
-    const checkUserLoginStatus = async () => {
-      try {
-        const userData = await AsyncStorage.getItem('user');
-        if (userData !== null) {
-          // User data found, they are logged in
-          setIsLoggedIn(true);
-        }
-      } catch (error) {
-        console.error('Error checking user login status:', error);
-      }
-    };
-
-    checkUserLoginStatus();
-  }, []);
-
-  // Handle login form submission
   const handleLogin = async () => {
-    // Basic user validation (you can expand this to check with a backend)
-    if (email === 'test@example.com' && password === 'password123') {
+    // Basic user validation (replace with real validation)
+    if (email === 'Test@example.com' && password === 'password123') {
       const userData = { name: 'John Doe', email: 'test@example.com' };
 
       try {
-        // Store user data in AsyncStorage
         await AsyncStorage.setItem('user', JSON.stringify(userData));
-        setIsLoggedIn(true);
-        Alert.alert('Login Successful', 'Welcome to the app!');
+        onLogin(userData);
       } catch (error) {
-        console.error('Error storing user data:', error);
+        console.error('Error saving user data:', error);
         Alert.alert('Error', 'Could not log you in. Please try again.');
       }
     } else {
@@ -44,45 +23,49 @@ const LoginScreen = () => {
     }
   };
 
-  // Handle logout
-  const handleLogout = async () => {
-    try {
-      // Remove user data from AsyncStorage
-      await AsyncStorage.removeItem('user');
-      setIsLoggedIn(false);
-      Alert.alert('Logged Out', 'You have successfully logged out.');
-    } catch (error) {
-      console.error('Error removing user data:', error);
-    }
-  };
-
   return (
-    <View style={{ padding: 20 }}>
-      {isLoggedIn ? (
-        <>
-          <Text>Welcome, you are logged in!</Text>
-          <Button title="Logout" onPress={handleLogout} />
-        </>
-      ) : (
-        <>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            style={{ borderBottomWidth: 1, marginBottom: 10 }}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            style={{ borderBottomWidth: 1, marginBottom: 20 }}
-          />
-          <Button title="Login" onPress={handleLogin} />
-        </>
-      )}
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
+      <Text style={styles.label}>Email:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+      />
+      <Text style={styles.label}>Password:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <Button color="#6D9277" title="Login" onPress={handleLogin} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#b7e1bf',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    borderColor: '#444243',
+  },
+  input: {
+    borderWidth: 2,
+    borderColor: '#444243',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#e0ffe0',
+  },
+});
 
 export default LoginScreen;
