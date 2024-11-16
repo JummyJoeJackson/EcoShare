@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, TextInput, Button, Alert, StyleSheet} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = ({onLogin}) => {
   const [email, setEmail] = useState('');
@@ -17,21 +16,10 @@ const LoginScreen = ({onLogin}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
-      <Text style={styles.label}>Email:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <Text style={styles.label}>Password:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+      <Text>Email:</Text>
+      <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail}/>
+      <Text>Password:</Text>
+      <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword}secureTextEntry/>
       <Button color="#6D9277" title="Login" onPress={handleLogin} />
     </View>
   );
