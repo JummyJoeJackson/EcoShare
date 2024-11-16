@@ -6,21 +6,12 @@ const LoginScreen = ({onLogin}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
-    // Basic user validation (replace with real validation)
-    if (email === 'Test@example.com' && password === 'password123') {
-      const userData = { name: 'John Doe', email: 'test@example.com' };
-
-      try {
-        await AsyncStorage.setItem('user', JSON.stringify(userData));
-        onLogin(userData);
-      } catch (error) {
-        console.error('Error saving user data:', error);
-        Alert.alert('Error', 'Could not log you in. Please try again.');
-      }
-    } else {
-      Alert.alert('Invalid Credentials', 'Please check your email and password.');
+  const handleLogin = () => {
+    if (!email || !password) {
+      Alert.alert('Missing Fields', 'Please enter both email and password.');
+      return;
     }
+    onLogin(email, password);
   };
 
   return (
