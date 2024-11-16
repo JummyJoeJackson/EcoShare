@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, TextInput, Button, Alert, StyleSheet} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignUpScreen = ({onSignUp}) => {
   const [name, setName] = useState('');
@@ -27,27 +26,11 @@ const SignUpScreen = ({onSignUp}) => {
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
       <Text style={styles.label}>Full Name:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Full Name"
-        value={name}
-        onChangeText={setName}
-      />
+      <TextInput style={styles.input} placeholder="Full Name" value={name} onChangeText={setName}/>
       <Text style={styles.label}>Email:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
+      <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail}/>
       <Text style={styles.label}>Create Password:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+      <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry/>
       <Button color="#6D9277" title="Sign Up" onPress={handleSignUp} />
     </View>
   );
