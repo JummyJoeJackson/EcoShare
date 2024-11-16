@@ -22,6 +22,14 @@ EcoShare is a social media platform designed to inspire and motivate individuals
 
 
 
+
+## Getting Started
+
+To get started, create an account and connect with other like-minded individuals who are passionate about sustainability. Start by sharing your eco-friendly habits, like switching to reusable products or reducing your energy consumption.
+
+
+
+
 ## Coming Soon
 - **Like and Comment:** Show support for others' actions by liking or commenting on their posts.
 - **Follow Users:** Follow users whose actions and ideas resonate with you. Stay updated on their latest posts and activities.
@@ -29,10 +37,6 @@ EcoShare is a social media platform designed to inspire and motivate individuals
 - **Group Discussions:** Join group chats focused on specific topics like sustainable living, renewable energy, or local environmental initiatives.
 
 
-
-## Getting Started
-
-To get started, create an account and connect with other like-minded individuals who are passionate about sustainability. Start by sharing your eco-friendly habits, like switching to reusable products or reducing your energy consumption.
 
 
 ## Installation
