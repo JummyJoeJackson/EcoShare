@@ -35,8 +35,6 @@ ADD THIS LATER
 Once logged in, you can:
 
 - **Post your actions**: Share pictures and updates about your environmentally-friendly activities.
-- **Join challenges**: Participate in community challenges like "Plastic-Free Week" or "Plant a Tree Month."
-- **Track your progress**: Monitor how your actions are making a positive impact on the environment.
 - **Connect with others**: Engage with people globally and locally who are working toward sustainability.
 
 
