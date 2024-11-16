@@ -18,7 +18,6 @@ EcoShare is a social media platform designed to inspire and motivate individuals
 - **User Authentication:** Secure login and registration system to store user data.
 - **Photo Upload Support:** Attach images to each eco-action post to showcase initiative visually.
 - **Post Eco-Friendly Actions:** Users can post descriptions of their eco-friendly actions along with photos.
-- **Feed of Eco-Actions:** Browse a community feed of eco-friendly actions posted by other users.
 
 
 
